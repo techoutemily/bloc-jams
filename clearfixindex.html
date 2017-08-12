@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Floats and Clearfixes Assignment</title>
+<style id="jsbin-css">
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* This margin will not show when there isn't a clearfix applied to the containing element */
+h3 {
+  margin-top: 50px;
+}
+
+.column {
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.column.third { width: 33.3%; }
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.box-1,
+.box-2,
+.box-3 {
+    background-color: rgb(215,215,215);
+    border: 3px solid rgb(175,175,175);
+    height: 200px;
+}
+/* box five will be placed on a new line when the clearfix class is applied to the containing element */
+.box-4,
+.box-5 {
+    background-color: rgb(215,215,215);
+    border: 3px solid rgb(175,175,175);
+    height: 50px;
+}
+.clearfix::before,
+.clearfix::after {
+   content: " ";
+   display: table;
+}
+
+.clearfix::after {
+   clear: both;
+}
+</style>
+</head>
+<body>
+  <h3>Columns with a clearfix</h3>
+    <!-- adding the clearfix class here will allow the margin above the h3 to actually show -->
+  <section class="clearfix">
+    <div class="column third box-1"></div>
+    <div class="column third box-2"></div>
+    <div class="column third box-3"></div>
+  </section>
+  <h3>Columns without a clearfix</h3>
+  <!-- add clearfix class here to see how it moves the box-5 element to a new line -->
+  <section class="clearfix">
+    <div class="column third box-1"></div>
+    <div class="column third box-2"></div>
+    <div class="column third box-4"></div>
+  </section>
+  <div class="column third box-5"></div>
+<script id="jsbin-javascript">
+var returnHello = function() {
+  return;
+}
+</script>
+
+
+<script id="jsbin-source-css" type="text/css">*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* This margin will not show when there isn't a clearfix applied to the containing element */
+h3 {
+  margin-top: 50px;
+}
+
+.column {
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.column.third { width: 33.3%; }
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.box-1,
+.box-2,
+.box-3 {
+    background-color: rgb(215,215,215);
+    border: 3px solid rgb(175,175,175);
+    height: 200px;
+}
+/* box five will be placed on a new line when the clearfix class is applied to the containing element */
+.box-4,
+.box-5 {
+    background-color: rgb(215,215,215);
+    border: 3px solid rgb(175,175,175);
+    height: 50px;
+}
+.clearfix::before,
+.clearfix::after {
+   content: " ";
+   display: table;
+}
+
+.clearfix::after {
+   clear: both;
+}</script>
+
+<script id="jsbin-source-javascript" type="text/javascript">var returnHello = function() {
+  return;
+}</script></body>
+</html>

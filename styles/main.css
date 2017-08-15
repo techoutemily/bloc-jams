@@ -67,6 +67,7 @@ body.landing {
      margin: 0 auto;
      max-width: 64rem;
  }
+ 
 /* Medium and small screens (640px) */
  @media (min-width: 640px) {
    html { font-size: 112%; }
@@ -98,6 +99,7 @@ body.landing {
 .clearfix::after {
    clear: both;
 }
+
 .hero-content {
      position: relative; /* positioning will be explained in a resource */
      min-height: 600px;  /* hero content element must be _at least_ 600 pixels */

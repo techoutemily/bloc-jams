@@ -10,7 +10,11 @@ var revealPoint = function(point) {
 var animatePoints = function(points) {
     forEach(points, revealPoint);
  };
-
+ window.onload = function() {
+    window.addEventListener('scroll', function(event) {
+            console.log(event);
+        });
+  }
  window.onload = function() {
    // Automatically animate the points on a tall screen where scrolling can't trigger the animation
      if (window.innerHeight > 950) {

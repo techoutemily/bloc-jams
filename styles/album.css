@@ -16,7 +16,7 @@ body.album {
  .album-view-details {
      position: relative;
      top: 1.5rem;
-     padding: 1rem;
+     padding: 2rem;
  }
 
  .album-view-details .album-view-title {
@@ -35,28 +35,68 @@ body.album {
  }
  .album-view-song-list {
      width: 90%;
-     margin: 1.5rem auto;
+     margin: 5rem auto;
      font-weight: 300;
      font-size: 0.75em;
      border-collapse: collapse;
+     font-family: sans-serif;
+     background-color: #ff1493;
  }
 
  .album-view-song-item {
-     height: 3rem;
+     height: 2rem;
      /* #1 */
      border-bottom: 1px solid rgba(255,255,255,0.5);
+     font-family: sans-serif;
  }
 
  .song-item-number {
-     width: 5%;
+    width: 5%;
+    min-width: 30px;
  }
 
  .song-item-title {
-     width: 85%;
+     width: 30%;
+     text-align: center;
+     font-family: sans-serif;
  }
 
  .song-item-duration {
-     width: 5%;
+     width: 30%;
+     text-align: center;
+     font-family: sans-serif;
+ }
+
+  .album-song-button {
+      text-align: center;
+      font-size: 14px;
+      background-color: white;
+      color: rgb(210, 40, 123);
+      border-radius: 50% 50%;
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+  }
+
+  .album-song-button:hover {
+      cursor: pointer;
+      color: white;
+      background-color: rgb(210, 40, 123);
+  }
+
+  .album-song-button span {
+      line-height: 28px;
+  }
+
+ .song-listening-count {
+   width: 10%;
+   text-align: center;
+   font-family: sans-serif;
+ }
+ .table-header {
+   background-color:#4b0082;
+   text-align: center;
+   font-family: sans-serif;
  }
  /* #2 */
 @media (max-width: 640px) and (min-width: 320px) {

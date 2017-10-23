@@ -15,9 +15,10 @@ var createSongRow = function(songNumber, songName, songLength) {
 
      var clickHandler = function() {
               // clickHandler logic
-     	      var songNumber = $(this).attr('data-song-number');
+              // added in parseInt below
+     	      var songNumber = parseInt($(this).attr('data-song-number'));
 
-             if (currentlyPlayingSongNumber !== null) {
+            if (currentlyPlayingSongNumber !== null) {
      		// Revert to song number for currently playing song because user started playing new song.
                      var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
                      currentlyPlayingCell.html(currentlyPlayingSongNumber);
@@ -25,13 +26,13 @@ var createSongRow = function(songNumber, songName, songLength) {
 
      	      if (currentlyPlayingSongNumber !== songNumber) {
      		// Switch from Play -> Pause button to indicate new song is playing.
-     		            $(this).html(pauseButtonTemplate);
+     		             $(this).html(pauseButtonTemplate);
                      currentlyPlayingSongNumber = songNumber;
                      currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
                      updatePlayerBarSong();
-             } else if (currentlyPlayingSongNumber === songNumber) {
+            } else if (currentlyPlayingSongNumber === songNumber) {
      		// Switch from Pause -> Play button to pause currently playing song.
-     		            $(this).html(playButtonTemplate);
+     		             $(this).html(playButtonTemplate);
                      $('.main-controls .play-pause').html(playerBarPlayButton);
                      currentlyPlayingSongNumber = null;
                      currentSongFromAlbum = null;
@@ -51,7 +52,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
      var offHover = function(event) {
          var songNumberCell = $(this).find('.song-item-number');
-         var songNumber = parseInt($(this).attr('data-song-number'));
+         var songNumber = songNumberCell.attr('data-song-number');
     // replacing with the code above, assn was not clear but I believe this is correct
          // var songNumber = songNumberCell.attr('data-song-number');
 
@@ -60,7 +61,7 @@ var createSongRow = function(songNumber, songName, songLength) {
          }
      console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingSongNumber type is " + typeof currentlyPlayingSongNumber);
      };
-     //should the three lines below be moved?
+     //should the three lines below below be moved?
 
      $row.find('.song-item-number').click(clickHandler);
      $row.hover(onHover, offHover);
@@ -70,7 +71,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
 
  var setCurrentAlbum = function(album) {
-// Select elements that we want to populate with text dynamically
+     currentAlbum = album;
      var $albumTitle = $('.album-view-title');
      var $albumArtist = $('.album-view-artist');
      var $albumReleaseInfo = $('.album-view-release-info');

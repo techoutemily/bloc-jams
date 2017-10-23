@@ -1,3 +1,12 @@
+var setSong = function(songNumber) {
+  currentlyPlayingSongNumber = parseInt(songNumber);
+  currentSongFromAlbum = currentAlbum.songs[songNumber -1];
+};
+
+var getSongNumberCell = function(number) {
+  return $('.song-item-number[data-song-number="' + number + '"]');
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
          '<tr class="album-view-song-item">'
@@ -8,26 +17,21 @@ var createSongRow = function(songNumber, songName, songLength) {
       ;
 
      var $row = $(template);
-     // should on hover and off hover go here?
-     // $row.find('.song-item-number').click(clickHandler);
-     // $row.hover(onHover, offHover);
-     // return $row;
 
      var clickHandler = function() {
-              // clickHandler logic
-              // added in parseInt below
      	      var songNumber = parseInt($(this).attr('data-song-number'));
 
             if (currentlyPlayingSongNumber !== null) {
      		// Revert to song number for currently playing song because user started playing new song.
-                     var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
+                     var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
                      currentlyPlayingCell.html(currentlyPlayingSongNumber);
      	      }
 
      	      if (currentlyPlayingSongNumber !== songNumber) {
      		// Switch from Play -> Pause button to indicate new song is playing.
      		             $(this).html(pauseButtonTemplate);
-                     currentlyPlayingSongNumber = songNumber;
+                     setSong(songNumber);
+                     // currentlyPlayingSongNumber = songNumber;
                      currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
                      updatePlayerBarSong();
             } else if (currentlyPlayingSongNumber === songNumber) {

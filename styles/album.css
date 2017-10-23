@@ -17,7 +17,7 @@ body.album {
  .album-view-details {
      position: relative;
      top: 1.5rem;
-     padding: 2rem;
+     padding: 1rem;
  }
 
  .album-view-details .album-view-title {
@@ -36,36 +36,28 @@ body.album {
  }
  .album-view-song-list {
      width: 90%;
-     margin: 5rem auto;
+     margin: 1.5rem auto;
      font-weight: 300;
      font-size: 0.75em;
      border-collapse: collapse;
-     font-family: sans-serif;
-     background-color: #ff1493;
  }
 
  .album-view-song-item {
-     height: 2rem;
+     height: 3rem;
      /* #1 */
      border-bottom: 1px solid rgba(255,255,255,0.5);
-     font-family: sans-serif;
  }
 
  .song-item-number {
     width: 5%;
-    min-width: 30px;
  }
 
  .song-item-title {
-     width: 30%;
-     text-align: center;
-     font-family: sans-serif;
+     width: 85%;
  }
 
  .song-item-duration {
-     width: 30%;
-     text-align: center;
-     font-family: sans-serif;
+     width: 5%;
  }
 
 

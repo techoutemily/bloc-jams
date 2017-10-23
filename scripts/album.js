@@ -129,6 +129,22 @@ var createSongRow = function(songNumber, songName, songLength) {
      return album.songs.indexOf(song);
  };
 
+// wilson attempting assignment 32
+ var togglePlayFromPlayerBar = function() {
+  	var $currentSong = getSongNumberCell(currentlyPlayingSongNumber);
+  	if(currentSoundFile) {
+  		      if(currentSoundFile.isPaused()) {
+  			            $currentSong.html(pauseButtonTemplate);
+  			            $(this).html(playerBarPauseButton);
+  			            currentSoundFile.play();
+  		      } else {
+  			            $currentSong.html(playButtonTemplate);
+  			            $(this).html(playerBarPlayButton);
+  			            currentSoundFile.pause();
+            }
+     }
+ };
+
 // curriculum 31
  var nextSong = function() {
     var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
@@ -214,12 +230,16 @@ var createSongRow = function(songNumber, songName, songLength) {
  var currentVolume = 80;
 
  var $previousButton = $('.main-controls .previous');
+ // wilson adding this line below in for assignment 32
+ var $playButton = $('.main-controls .play-pause');
  var $nextButton = $('.main-controls .next');
 
  $(document).ready(function() {
      setCurrentAlbum(albumPicasso);
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
+     // wilson adding this line in below for assignment 32
+     $playButton.click(togglePlayFromPlayerBar);
  });
 
 //     var albums = [albumPicasso, albumMarconi, albumBritney];

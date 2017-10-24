@@ -129,21 +129,21 @@ var createSongRow = function(songNumber, songName, songLength) {
      return album.songs.indexOf(song);
  };
 
-// wilson attempting assignment 32
- var togglePlayFromPlayerBar = function() {
-  	var $currentSong = getSongNumberCell(currentlyPlayingSongNumber);
-  	if(currentSoundFile) {
-  		      if(currentSoundFile.isPaused()) {
-  			            $currentSong.html(pauseButtonTemplate);
-  			            $(this).html(playerBarPauseButton);
-  			            currentSoundFile.play();
-  		      } else {
-  			            $currentSong.html(playButtonTemplate);
-  			            $(this).html(playerBarPlayButton);
-  			            currentSoundFile.pause();
-            }
-     }
- };
+ // wilson updating assignment 32 with the code below.
+ var $mainControlsSelector = $('.main-controls .play-pause');
+ var togglePlayFromPlayerBar = function () {
+  	       if (currentlyPlayingSongNumber) {
+  		             if (currentSoundFile.isPaused()) {
+  			                   getSongNumberCell(currentlyPlayingSongNumber).html(pauseButtonTemplate);
+  			                   $mainControlsSelector.html(playerBarPauseButton);
+  		                     currentSoundFile.play();
+  		             } else {
+  			                   getSongNumberCell(currentlyPlayingSongNumber).html(playButtonTemplate);
+  			                   $mainControlsSelector.html(playerBarPlayButton);
+  			                   currentSoundFile.pause();
+  		             }
+  	       }
+  };
 
 // curriculum 31
  var nextSong = function() {

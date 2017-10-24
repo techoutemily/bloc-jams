@@ -110,7 +110,6 @@ var createSongRow = function(songNumber, songName, songLength) {
               var $seekBar = $('.seek-control .seek-bar');
 
               updateSeekPercentage($seekBar, seekBarFillRatio);
-              setCurrentTimeInPlayerBar(currentSoundFile.getTime()); // wilson added
           });
       }
  };
@@ -243,7 +242,6 @@ var createSongRow = function(songNumber, songName, songLength) {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
-    setTotalTimeInPlayerBar(currentSongFromAlbum.duration); // wilson added
  };
 
 // Album button templates
@@ -263,8 +261,6 @@ var createSongRow = function(songNumber, songName, songLength) {
  var $nextButton = $('.main-controls .next');
 
 // wilson added below code
- var $mainControlsSelector = $('.main-controls .play-pause'); // #1 from assignment
- var togglePlayFromPlayerBar = function () { // #2 from assignment
  	       if (currentlyPlayingSongNumber) {
  		             if (currentSoundFile.isPaused()) {
  			                   getSongNumberCell(currentlyPlayingSongNumber).html(pauseButtonTemplate);

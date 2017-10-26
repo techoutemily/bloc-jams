@@ -132,25 +132,51 @@ var createSongRow = function(songNumber, songName, songLength) {
      });
    };
 
+// wilson previous attempt at assignment 26
+// var findParentByClassName = function(element, targetClass) {
+//    if (element) {
+//       if (element.parentElement === null) { // changed from currentParent.parentElement
+  //         alert("No parent found");
+  //     }
+  //         else {
+    //         var currentParent = element.parentElement;
+  //           while (currentParent.className != targetClass && currentParent.className !== null) {
+    //             currentParent = currentParent.parentElement;
+  //         }
+  //     if (currentParent.className === null) {
+  //        alert("No parent found with that class name");
+  //     }
+  //        else {
+  //            return currentParent;
+  //        }
+  //   }
+// };
+
 // wilson new attempt at assignment 26
+
 var findParentByClassName = function(element, targetClass) {
     if (element) {
-       if (element.parentElement === null) { // changed from currentParent.parentElement
-           alert("No parent found");
+      var currentParent = element.parentElement;
+      while (currentParent.className !== targetClass && currentParent.className !== null) {
+
+       if (currentParent === undefined) { // removed .parentElement
+           console.log("No parent found");
+       } else  if (currentParent.className != targetClass) {
+          console.log("No parent found with that class name");
+       } else {
+
+         currentParent = currentParent.parentElement;
        }
-           else {
-             var currentParent = element.parentElement;
-             while (currentParent.className != targetClass && currentParent.className !== null) {
-                 currentParent = currentParent.parentElement;
-           }
-       if (currentParent.className === null) {
-          alert("No parent found with that class name");
-       }
-          else {
-              return currentParent;
-          }
+       return currentParent;
      }
 };
+
+
+
+
+
+
+
 
 // original code below for checkpoint 26
 // var findParentByClassName = function(element, targetClass) {
